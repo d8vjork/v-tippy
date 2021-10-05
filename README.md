@@ -34,7 +34,7 @@ app.mount("#app");
 
 ```html
 <template>
-  <button v-tooltip="{ content: 'Hello world!' }">
+  <button v-tooltip="'Hello world!'">
     hover me!
   </button>
 </template>
@@ -56,7 +56,7 @@ export default {
 
 ```html
 <template>
-  <button v-tooltip="{ content: 'Hello world!' }">
+  <button v-tooltip="'Hello world!'">
     hover me!
   </button>
 </template>

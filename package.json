@@ -1,6 +1,6 @@
 {
   "name": "v-tippy-3",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Create tooltips and popovers with this Vue 3 directive which uses TippyJS",
   "module": "dist/index.mjs",
   "main": "dist/index.js",
@@ -16,7 +16,8 @@
     "bundle": "microbundle -f es,cjs,umd",
     "watch": "bundle --watch",
     "clean": "rimraf dist",
-    "build": "npm-run-all --silent clean -p bundle"
+    "build": "npm-run-all --silent clean -p bundle",
+    "prepublish": "build"
   },
   "dependencies": {
     "lodash.defaultsdeep": "^4.6.1",
