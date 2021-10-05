@@ -12,16 +12,18 @@ export interface TooltipDirectiveProps {
 
 declare module "vue" {
   export interface ComponentCustomProperties {
-    vTooltip: Directive<HTMLElement, TooltipDirectiveProps>;
+    vTooltip: Directive<HTMLElement, TooltipDirectiveProps | string>;
   }
 }
 
-export const useTooltip = (config: Omit<TooltipDirectiveProps, "content">): ObjectDirective<HTMLElement, TooltipDirectiveProps> => {
+export const useTooltip = (
+  config: Omit<TooltipDirectiveProps, "content">
+): ObjectDirective<HTMLElement, TooltipDirectiveProps> => {
   // @ts-ignore
   delete config["content"];
 
   return {
-    mounted(el: HTMLElement, binding: DirectiveBinding<TooltipDirectiveProps>, vnode) {
+    mounted(el: HTMLElement, binding: DirectiveBinding<TooltipDirectiveProps>) {
       el.addEventListener(
         "mouseover",
         () => registerMouseoverEvent(el, binding, config),
@@ -39,8 +41,8 @@ export const useTooltip = (config: Omit<TooltipDirectiveProps, "content">): Obje
     },
 
     deep: true,
-  }
-}
+  };
+};
 
 const mergeAllProps = (
   binding: DirectiveBinding<TooltipDirectiveProps>,
@@ -60,7 +62,14 @@ const mergeAllProps = (
 
   previousProps
     ? delete props.content
-    : (props.content = getContent(defaultsDeep(binding.value, inheritedProps)));
+    : (props.content = getContent(
+        defaultsDeep(
+          typeof binding.value === "string"
+            ? { content: binding.value }
+            : binding.value,
+          inheritedProps
+        )
+      ));
 
   return props;
 };
@@ -84,5 +93,3 @@ const getContent = (value: TooltipDirectiveProps) => {
 
   return `<div${attrs}>${content}</div>`;
 };
-
-const resolveDirectiveConfig = (instance: Record<string, any>) => instance?.config || {};
