@@ -2,12 +2,13 @@ import { DirectiveBinding, Directive, ObjectDirective } from "vue";
 import tippy, { Placement, ReferenceElement, Props } from "tippy.js";
 import defaultsDeep from "lodash.defaultsdeep";
 import { defaultProps } from "./plugin";
+import { PartialDeep } from "type-fest";
 
 export interface TooltipDirectiveProps {
   content?: string;
   class?: string;
   style?: string;
-  tippy?: Props;
+  tippy?: PartialDeep<Props>;
 }
 
 declare module "vue" {

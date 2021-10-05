@@ -11,7 +11,7 @@ declare type TippyPluginConfig = Omit<TooltipDirectiveProps, "content"> &
   TooltipsGlobalConfig;
 
 export const defaultProps: Partial<Props> = {
-  placement: "auto",
+  placement: "top",
   allowHTML: true,
 };
 

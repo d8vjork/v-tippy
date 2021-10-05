@@ -1,6 +1,6 @@
 {
   "name": "v-tippy-3",
-  "version": "0.1.2",
+  "version": "0.1.4",
   "description": "Create tooltips and popovers with this Vue 3 directive which uses TippyJS",
   "module": "dist/index.mjs",
   "main": "dist/index.js",
@@ -22,6 +22,7 @@
   "dependencies": {
     "lodash.defaultsdeep": "^4.6.1",
     "tippy.js": "^6.3.2",
+    "type-fest": "^2.3.4",
     "vue": "^3.2.19"
   },
   "devDependencies": {
