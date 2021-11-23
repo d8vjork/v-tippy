@@ -1,6 +1,6 @@
 {
   "name": "v-tippy-3",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Create tooltips and popovers with this Vue 3 directive which uses TippyJS",
   "module": "dist/index.mjs",
   "main": "dist/index.js",
