@@ -34,7 +34,10 @@ export const useTooltip = (
 
     updated(el: ReferenceElement, binding) {
       el._tippy?.setContent(getContent(binding.value));
-      el._tippy?.setProps(mergeAllProps(binding, undefined, el._tippy?.props));
+
+      if (binding.modifiers) {
+        el._tippy?.setProps(binding.modifiers);
+      }
     },
 
     beforeUnmount(el: ReferenceElement) {
