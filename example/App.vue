@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col items-center space-y-6 justify-center container py-16">
-    <div v-tooltip="content">
+    <div v-tooltip.left="content">
       Hover me
     </div>
 
@@ -8,7 +8,7 @@
       Hover me (bottom)
     </div>
     
-    <div v-tooltip="{ content, placement: 'bottom' }">
+    <div v-tooltip="{ content, class: 'font-bold' }">
       Hover me (another bottom)
     </div>
 
