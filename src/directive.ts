@@ -92,7 +92,6 @@ const registerMouseoverEvent = (
 };
 
 const getContent = (value: TooltipDirectiveProps) => {
-  console.log({ value })
   let attrs = "";
   const content = typeof value === "string" ? value : value.content;
 
