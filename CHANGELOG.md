@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.5] - 2021-11-24
+
+### Fixed
+
+- Tippy props getting replaced by directive's update
+
 ## [0.1.4] - 2021-10-05
 
 ### Fixed
