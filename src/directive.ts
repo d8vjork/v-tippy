@@ -33,11 +33,16 @@ export const useTooltip = (
     },
 
     updated(el: ReferenceElement, binding) {
-      el._tippy?.setContent(getContent(binding.value));
+      el._tippy?.setContent(
+        getContent(
+          defaultsDeep(
+            typeof binding.value === "string" ? { content: binding.value } : binding.value,
+            config
+          )
+        )
+      );
 
-      if (binding.modifiers) {
-        el._tippy?.setProps(binding.modifiers);
-      }
+      el._tippy?.setProps(mergeAllProps(binding, config, el._tippy.props));
     },
 
     beforeUnmount(el: ReferenceElement) {
@@ -60,8 +65,8 @@ const mergeAllProps = (
   }
 
   props = defaultsDeep(
-    previousProps || inheritedProps?.tippy || defaultProps,
-    props
+    props,
+    previousProps || inheritedProps?.tippy || defaultProps
   );
 
   previousProps
@@ -87,6 +92,7 @@ const registerMouseoverEvent = (
 };
 
 const getContent = (value: TooltipDirectiveProps) => {
+  console.log({ value })
   let attrs = "";
   const content = typeof value === "string" ? value : value.content;
 
