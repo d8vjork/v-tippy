@@ -1,5 +1,7 @@
 # v-tippy
 
+**IMPORTANT: This project is archived, please use [Tippy.vue](https://github.com/thecodewarrior/Tippy.vue) instead.**
+
 Create tooltips and popovers with this Vue 3 directive which uses [TippyJS](https://atomiks.github.io/tippyjs/)
 
 ## Installation
